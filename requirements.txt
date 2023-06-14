@@ -1,0 +1,7 @@
+Django==3.2.4  # El framework de Django en sí mismo
+django-environ==0.4.5  # Para manejar la configuración basada en variables de entorno
+gunicorn==20.1.0  # Un servidor web para producción
+psycopg2-binary==2.9.1  # Adaptador de base de datos para PostgreSQL
+django-crispy-forms==1.13.0  # Para crear formularios más elegantes y con estilo
+django-ckeditor==6.1.0  # Integración del editor de texto enriquecido CKEditor
+django-debug-toolbar==3.2.2  # Barra de herramientas de depuración para desarrollo
