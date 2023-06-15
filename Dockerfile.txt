@@ -1,8 +1,8 @@
 FROM python:3.9
 
-WORKDIR /fixture
+WORKDIR /resultados
 
-COPY . /fixture
+COPY . /resultados
 
 EXPOSE 8000
 
