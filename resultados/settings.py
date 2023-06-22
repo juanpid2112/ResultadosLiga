@@ -78,9 +78,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME':'resultados',
-        'USER': 'admin',
-        'PASSWORD': 'eJnkivEH4uFqBXnwT3M4WqNesWyUBbYy',
-        'HOST': 'dpg-ci0c9rd269v9cqnp7590-a.oregon-postgres.render.com',
+        'USER': 'postgres',
+        'PASSWORD': '43928343',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -126,3 +126,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DEFAULT_CHARSET = 'utf-8'
