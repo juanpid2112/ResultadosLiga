@@ -6,12 +6,35 @@
         <title>Liga Regional de San Francisco</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'fixture/css/fixture.css' %}">
+
     </head>
     <body>
+        <header>
+            <h1>Fecha {{fecha.id_fecha}}</h1>
+          </header>
         
-        {% for clave, valor in str_partidos.items %}
-            <p>{{ valor }}</p>
-        {% endfor %}
+          <main>
+            <div class="partidos">
+              <table>
+                <tbody>
+                  {% for partido in str_partidos %}
+                    <tr data-url=""> 
+                      <td><a href="{% url 'partido-especifico' id=partido.4 %}"><strong>{{ partido.0 }}</strong></a></td>
+                      <td><a href="{% url 'partido-especifico' id=partido.4 %}">{{ partido.1 }}</a></td>
+                      <td class="vs">vs</td>
+                      <td><a href="{% url 'partido-especifico' id=partido.4 %}">{{ partido.2 }}</a></td>
+                      <td><strong><a href="{% url 'partido-especifico' id=partido.4 %}">{{ partido.3 }}</a></strong></td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </main>
+          
+          <footer>
+            <p>&copy; 2023 Mi Página de Partidos. Todos los derechos reservados.</p>
+          </footer>       
     </body>
 </html>

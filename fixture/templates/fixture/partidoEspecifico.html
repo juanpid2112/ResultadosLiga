@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especifico</title>
+</head>
+<body>
+    <h1>{{ datos.resultado.0 }} {{ datos.local }} - {{ datos.tiempo }} - {{ datos.visitante }} {{ datos.resultado.1 }}</h1>
+    <ul>
+        {% for actividad in datos.sucesos %}
+            <li>
+                {{ actividad }}
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>Equipos</h2>
+    {{datos.local}}
+    <ul> 
+        {% for jugador in datos.jL %}
+            <li>
+                {{ jugador }}
+            </li>
+        {% endfor %}
+    </ul>
+    {{datos.visitante}}
+    <ul>
+        {% for jugador in datos.jV %}
+            <li>
+                {{ jugador.nombre }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
