@@ -8,33 +8,53 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'fixture/css/fixture.css' %}">
-
+        <script>
+          // Función para redirigir a la URL especificada
+          function redirigir(url) {
+            window.location.href = url;
+          }
+        
+          // Agregar un controlador de eventos a cada fila de la tabla
+          window.addEventListener('DOMContentLoaded', function() {
+            var filas = document.getElementsByTagName('tr');
+            for (var i = 0; i < filas.length; i++) {
+              filas[i].addEventListener('click', function() {
+                // Obtener la URL de la fila (puedes modificar esto según tus necesidades)
+                var url = this.getAttribute('data-url');
+                // Redirigir a la URL
+                redirigir(url);
+              });
+            }
+          });
+        </script>
     </head>
+
     <body>
         <header>
             <h1>Fecha {{fecha.id_fecha}}</h1>
-          </header>
-        
-          <main>
-            <div class="partidos">
-              <table>
-                <tbody>
-                  {% for partido in str_partidos %}
-                    <tr data-url=""> 
-                      <td><a href="{% url 'partido-especifico' id=partido.4 %}"><strong>{{ partido.0 }}</strong></a></td>
-                      <td><a href="{% url 'partido-especifico' id=partido.4 %}">{{ partido.1 }}</a></td>
-                      <td class="vs">vs</td>
-                      <td><a href="{% url 'partido-especifico' id=partido.4 %}">{{ partido.2 }}</a></td>
-                      <td><strong><a href="{% url 'partido-especifico' id=partido.4 %}">{{ partido.3 }}</a></strong></td>
-                    </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-            </div>
-          </main>
+        </header> 
+        <main>
+          <div class="publicidadLateral"><h1>Publicidad Lateral 1</h1></div>
+          <div class="partidos">
+            <table>
+              <tbody>
+                {% for partido in str_partidos %}
+                  <tr data-url="{% url 'partido-especifico' id=partido.4 %}"> 
+                    <td><strong>{{ partido.0 }}</strong></td>
+                    <td>{{ partido.1 }}</td>
+                    <td class="vs">vs</td>
+                    <td>{{ partido.2 }}</td>
+                    <td><strong>{{ partido.3 }}</strong></td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="publicidadLateral"><h1>Publicidad Lateral 2</h1></div>
+        </main>
           
-          <footer>
-            <p>&copy; 2023 Mi Página de Partidos. Todos los derechos reservados.</p>
-          </footer>       
+        <footer>
+          <p>&copy; 2023 Mi Página de Partidos. Todos los derechos reservados.</p>
+        </footer>       
     </body>
 </html>

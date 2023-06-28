@@ -36,7 +36,7 @@ class PartidosActuales(View):
         fechaVigente = Fechas.objects.get(id_estado = 15)
 
         #Obtengo todos los partidos que esten en alguno de los estados buscados
-        partidos = Partidos.objects.filter(id_estado__in=self.estados,id_fecha = fechaVigente).order_by('id_partido')
+        partidos = Partidos.objects.filter(id_fecha = fechaVigente).order_by('id_partido')#id_estado__in=self.estados,
 
         #Inicio un diccionario vacio donde guardare los str que pasare a la plantilla
         str_partidos = []

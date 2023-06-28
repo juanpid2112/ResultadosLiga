@@ -133,9 +133,39 @@ class Jugadores(models.Model):
     class Meta:
         managed = False
         db_table = 'jugadores'
+    
+    def esTitular (self):
+        if (self.id_estado.nombre == 'Titular'):
+            return True
+        else:
+            return False
+    
+    def esSuplente (self):
+        if (self.id_estado.nombre == 'Suplente'):
+            return True
+        else:
+            return False
+    
+    def esActivo (self):
+        if (self.id_estado.nombre == 'Activo'):
+            return True
+        else:
+            return False
+    
+    def esInactivo (self):
+        if (self.id_estado.nombre == 'Inactivo'):
+            return True
+        else:
+            return False
+        
+    def getEstado (self):
+        return self.id_estado.nombre
+
+    def getPos (self):
+        return f'{(self.id_posicion.nombre)[:3]}'
 
     def __str__(self):
-        return f'{(self.id_posicion.nombre)[:3]} {self.nombre}'
+        return f'{self.nombre}'
 
 
 class Ligas(models.Model):
@@ -251,3 +281,35 @@ class Tipotarjetas(models.Model):
 
     def __str__(self):
         return self.nombre
+
+class Localidad(models.Model):
+    nombre = models.CharField(max_length=50)
+    codigo_postal = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.nombre
+
+
+class Negocio(models.Model):
+    nombre = models.CharField(max_length=50)
+    localidad = models.ForeignKey(Localidad, on_delete=models.CASCADE)
+    id_estado = models.ForeignKey(Estados, models.DO_NOTHING, db_column='id_estado', blank=True, null=True,limit_choices_to={'nombre__in': ['Activo', 'Inactivo']})
+
+    def __str__(self):
+        return self.nombre
+
+
+class PublicidadLateral(models.Model):
+    negocio = models.OneToOneField(Negocio, on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to='publicidades_laterales')
+
+    def __str__(self):
+        return f"Publicidad Lateral - {self.negocio.nombre}"
+
+
+class PublicidadHorizontal(models.Model):
+    negocio = models.OneToOneField(Negocio, on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to='publicidades_horizontales')
+
+    def __str__(self):
+        return f"Publicidad Horizontal - {self.negocio.nombre}"

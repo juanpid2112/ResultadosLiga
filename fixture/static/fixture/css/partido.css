@@ -1,0 +1,120 @@
+/*---------------------*/
+/* Estilo para el body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/* Estilo para el body */
+/*---------------------*/
+
+/*---------------------------*/
+/* Estilo para el encabezado */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+/* Estilo para el encabezado */
+/*---------------------------*/
+
+/*------------------------------------*/
+/* Estilo para el contenido principal */
+main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    width: 80vw;
+}
+/* Estilo para el contenido principal */
+/*------------------------------------*/
+
+/*---------------------------*/
+/*Estilos de las publicidades*/
+.publicidadLateral {
+    background-color: green;
+    width: 10vw;
+    min-height: 100vh;
+}
+/*Estilos de las publicidades*/
+/*---------------------------*/
+
+/*--------------------------*/
+/*Estilos de las formaciones*/
+.formaciones {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.equipo,
+.equipo2 {
+    flex-basis: 45%;
+    width: 45%;/*C*/
+}
+/*Estilos de las formaciones*/
+/*--------------------------*/
+
+/*----------------------*/
+/*Estilos de los titulos*/
+header h1 {/*Titulo de encabezado*/
+    margin: 0;
+}
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+/*Estilos de los titulos*/
+/*----------------------*/
+
+/*---------------------------------*/
+/*Estilos de la lista de cronologia*/
+.cronologia {
+    margin-bottom: 40px;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+li:last-child {
+    border-bottom: none;
+}
+/*Estilos de la lista de cronologia*/
+/*---------------------------------*/
+
+/*----------------------------------*/
+/*Estilos de la tabla de formaciones*/
+/*Clases para jugadores suplentes y titulares*/
+.titular td {
+    color: black;
+}
+.suplente td {
+    color: gray;
+}
+/*Estilos de la tabla de formaciones*/
+/*----------------------------------*/

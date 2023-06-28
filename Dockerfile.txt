@@ -1,12 +1,19 @@
+# Utiliza una imagen base de Python
 FROM python:3.9
 
-WORKDIR /resultados
+# Establece el directorio de trabajo dentro del contenedor
+WORKDIR /app
 
-COPY . /resultados
+# Copia el archivo de requerimientos (requirements.txt) al contenedor
+COPY requirements.txt .
 
-EXPOSE 8000
+# Instala las dependencias del proyecto
+RUN pip install -r requirements.txt
 
-RUN pip install --no-cache-dir -r requirements.txt
+# Copia todo el contenido de tu proyecto al contenedor
+COPY . .
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000", "--noreload"]
+# Define el comando para ejecutar tu proyecto Django
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
 

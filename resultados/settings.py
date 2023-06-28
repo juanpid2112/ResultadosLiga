@@ -73,7 +73,7 @@ WSGI_APPLICATION = 'resultados.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -84,8 +84,18 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+"""
 
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':'resultados_0zb8',
+        'USER': 'administrador',
+        'PASSWORD': 'YbcpvpdCT2wUCZ3NqJZ1QdLmTZYU67a9',
+        'HOST': 'dpg-cie6ell9aq0ce3avc110-a.oregon-postgres.render.com',
+        'PORT': '5432',
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 

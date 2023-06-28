@@ -4,32 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Especifico</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'fixture/css/partido.css' %}">
 </head>
 <body>
-    <h1>{{ datos.resultado.0 }} {{ datos.local }} - {{ datos.tiempo }} - {{ datos.visitante }} {{ datos.resultado.1 }}</h1>
-    <ul>
-        {% for actividad in datos.sucesos %}
-            <li>
-                {{ actividad }}
-            </li>
-        {% endfor %}
-    </ul>
-    <h2>Equipos</h2>
-    {{datos.local}}
-    <ul> 
-        {% for jugador in datos.jL %}
-            <li>
-                {{ jugador }}
-            </li>
-        {% endfor %}
-    </ul>
-    {{datos.visitante}}
-    <ul>
-        {% for jugador in datos.jV %}
-            <li>
-                {{ jugador.nombre }}
-            </li>
-        {% endfor %}
-    </ul>
+    <header>
+        <h1>{{ datos.resultado.0 }} {{ datos.local.abreviatura }} - {{ datos.tiempo }} - {{ datos.visitante.abreviatura }} {{ datos.resultado.1 }}</h1>
+    </header>
+    <main>
+        <div class="publicidadLateral"><h1>Publicidad Lateral 1</h1></div>
+        <div class="container"> 
+            <div class="cronologia">
+                <ul>
+                    {% for actividad in datos.sucesos %}
+                        <li>
+                            {{ actividad }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <h2>Formaciones</h2>
+            <div class="formaciones">
+                <div class="equipo1">
+                    <h3>{{datos.local}}</h3>
+                    <table>
+                        <tbody>
+                            {% for jugador in datos.jL %}
+                                {% if jugador.getEstado == 'Titular' %}
+                                <tr class="titular">
+                                {% else %}
+                                <tr class="suplente">
+                                {% endif %}
+                                    <td>
+                                        <strong>{{ jugador.getPos }}</strong>
+                                    </td>
+                                    <td>
+                                        {{ jugador }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="equipo2">
+                    <h3>{{datos.visitante}}</h3>
+                    <table>
+                        <tbody>
+                            {% for jugador in datos.jV %}
+                            <tr>
+                                <td>
+                                    <strong>{{ jugador.getPos }}</strong>
+                                </td>
+                                <td>
+                                    {{ jugador }}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="publicidadLateral"><h1>Publicidad Lateral 2</h1></div>
+    </main>
+
 </body>
 </html>
